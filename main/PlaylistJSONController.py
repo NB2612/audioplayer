@@ -1,7 +1,7 @@
 import json
 import os
-from .PlayList import PlayList
-from .Composition import Composition
+from .Playlist import PlayList
+from .composition import Composition
 
 class PlaylistJSONController:
     """Контроллер для сохранения и загрузки плейлистов в отдельные JSON-файлы"""

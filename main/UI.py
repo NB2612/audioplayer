@@ -2,8 +2,8 @@ import wx
 import wx.adv
 from pygame import mixer
 
-from .Composition import Composition
-from .PlayList import PlayList
+from .composition import Composition
+from .Playlist import PlayList
 from .PlayerController import PlayerController
 from .PlaylistJSONController import PlaylistJSONController
 

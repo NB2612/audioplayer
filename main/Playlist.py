@@ -1,4 +1,4 @@
-from .Composition import Composition
+from .composition import Composition
 from .linked_list import LinkedList
 
 
