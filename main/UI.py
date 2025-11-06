@@ -299,9 +299,3 @@ class AudioPlayerFrame(wx.Frame):
         if self.controller.is_playing and self.controller.current_track:
             percent = self.controller.get_pos()
             self.progress.SetValue(percent)
-
-
-if __name__ == "__main__":
-    app = wx.App(False)
-    frame = AudioPlayerFrame()
-    app.MainLoop()
