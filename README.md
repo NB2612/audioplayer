@@ -70,7 +70,7 @@ pip install -r requirements.txt
 > **requirements.txt**:
 >
 > ```
-> wxPython==4.2.4
+> wxPython==4.2.4 --prefer-binary
 > pygame==2.6.1
 > simplejson==3.20.2
 > ```
