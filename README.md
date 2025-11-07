@@ -100,7 +100,7 @@ pip install pyinstaller
 2. Соберите exe:
 
 ```bash
-pyinstaller --onefile --windowed main.py --icon=myicon.ico
+pyinstaller --onefile --windowed AudioPlayer.py --icon=myicon.ico
 ```
 
 * `--onefile` — собирает один exe
