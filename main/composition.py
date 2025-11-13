@@ -19,9 +19,8 @@ class Composition:
         self.title = title
         self.duration = duration
         self.path = path
-        #print(repr(self))
 
-    def get_path(self):
+    def get_path(self) -> str:
         """
         Возвращает путь к файлу композиции.
 
@@ -30,7 +29,7 @@ class Composition:
         """
         return str(self.path)
 
-    def get_title(self):
+    def get_title(self) -> str:
         """
         Возвращает название композиции.
 
@@ -39,7 +38,7 @@ class Composition:
         """
         return str(self.title)
 
-    def get_duration(self):
+    def get_duration(self) -> float:
         """
         Возвращает длительность композиции в секундах.
 
@@ -48,7 +47,7 @@ class Composition:
         """
         return float(self.duration)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """
         Возвращает строковое представление объекта для отладки.
 
@@ -57,7 +56,7 @@ class Composition:
         """
         return f"Composition('{self.title}', '{self.duration}', '{self.path}')"
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         """
         Сравнивает текущую композицию с другой.
 

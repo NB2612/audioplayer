@@ -29,7 +29,7 @@ class PlaylistJSONController:
         if not os.path.exists(self.folder):
             os.makedirs(self.folder)
 
-    def playlist_file(self, name):
+    def playlist_file(self, name: str):
         """
         Генерирует путь к JSON-файлу плейлиста по его имени.
 
@@ -42,7 +42,7 @@ class PlaylistJSONController:
         safe_name = name.replace(" ", "_")
         return os.path.join(self.folder, f"playlist_{safe_name}.json")
 
-    def save_playlist(self, name, playlist: PlayList):
+    def save_playlist(self, name: str, playlist: PlayList):
         """
         Сохраняет плейлист в отдельный JSON-файл.
 
@@ -54,7 +54,7 @@ class PlaylistJSONController:
         with open(self.playlist_file(name), "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
-    def delete_playlist_file(self, name):
+    def delete_playlist_file(self, name: str):
         """
         Удаляет JSON-файл плейлиста, если он существует.
 
@@ -65,7 +65,7 @@ class PlaylistJSONController:
         if os.path.exists(path):
             os.remove(path)
 
-    def load_playlists(self):
+    def load_playlists(self) -> dict[str, PlayList]:
         """
         Загружает все плейлисты из папки.
 

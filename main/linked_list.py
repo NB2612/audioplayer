@@ -1,3 +1,6 @@
+from typing import Iterator
+
+
 class LinkedListItem:
     """
     Узел двусвязного списка.
@@ -86,7 +89,7 @@ class LinkedList:
             return None
         return self._head.previous_item
 
-    def append_left(self, item):
+    def append_left(self, item: LinkedListItem):
         """
         Добавляет элемент в начало списка.
 
@@ -107,7 +110,7 @@ class LinkedList:
         self._head = new_node
 
 
-    def append_right(self, item):
+    def append_right(self, item: LinkedListItem):
         """
         Добавляет элемент в конец списка.
 
@@ -124,11 +127,11 @@ class LinkedList:
             last.next_item = new_node
             self._head.previous_item = new_node
 
-    def append(self, item):
+    def append(self, item: LinkedListItem):
         """Синоним метода append_right."""
         self.append_right(item)
 
-    def remove(self, item):
+    def remove(self, item: LinkedListItem):
         """
         Удаляет первый найденный элемент из списка.
 
@@ -156,7 +159,7 @@ class LinkedList:
                 break
         raise ValueError("item not found")
 
-    def insert(self, previous, item):
+    def insert(self, previous: LinkedListItem, item: LinkedListItem):
         """
         Вставляет новый элемент справа от указанного элемента.
 
@@ -185,7 +188,7 @@ class LinkedList:
         raise ValueError("node not found")
 
 
-    def __len__(self):
+    def __len__(self) -> int:
         """Возвращает количество элементов в списке."""
         if self.first_item is None:
             return 0
@@ -196,7 +199,7 @@ class LinkedList:
             current = current.next_item
         return count
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[LinkedListItem]:
         """Итератор по узлам списка (LinkedListItem)."""
         if not self.first_item:
             return
@@ -207,7 +210,7 @@ class LinkedList:
             yield current
             current = current.next_item
 
-    def __getitem__(self, index):
+    def __getitem__(self, index: int) -> LinkedListItem:
         """
         Доступ к элементу по индексу.
 
@@ -230,7 +233,7 @@ class LinkedList:
             current = current.next_item
         return current.data
 
-    def __contains__(self, item):
+    def __contains__(self, item: LinkedListItem) -> bool:
         """
         Проверяет наличие элемента в списке.
 

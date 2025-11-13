@@ -1,4 +1,5 @@
 from pygame import mixer
+from .composition import Composition
 
 # Класс управления плеером через pygame
 
@@ -10,7 +11,7 @@ class PlayerController:
         self.is_paused = False
         self.current_track = None
 
-    def play(self, composition, target=0):
+    def play(self, composition: Composition, target=0):
         """Запуск новой композиции."""
         if not composition:
             return
@@ -24,7 +25,7 @@ class PlayerController:
         except Exception as e:
             print(f"Ошибка при воспроизведении: {e}")
 
-    def get_pos(self):
+    def get_pos(self) -> int:
         """Получение длинны композиции"""
         if not self.is_playing:
             return 0
@@ -55,5 +56,5 @@ class PlayerController:
             return
 
     @staticmethod
-    def is_busy():
+    def is_busy() -> bool:
         return mixer.music.get_busy()

@@ -1,5 +1,5 @@
 from .composition import Composition
-from .linked_list import LinkedList
+from .linked_list import LinkedList, LinkedListItem
 
 
 class PlayList(LinkedList):
@@ -18,20 +18,20 @@ class PlayList(LinkedList):
         super().__init__(None)
         self.current_node = None
 
-    def add_song(self, composition: Composition):
+    def add_song(self, composition: LinkedListItem):
         """
         Добавляет композицию в плейлист.
 
         Если плейлист был пустым, текущей композицией становится добавленный трек.
 
         Args:
-            composition (Composition): Объект композиции для добавления.
+            composition (LinkedListItem): Объект композиции для добавления.
         """
         self.append(composition)
         if self.current_node is None:
             self.current_node = self.first_item
 
-    def remove_song(self, composition: Composition):
+    def remove_song(self, composition: LinkedListItem | Composition):
         """
         Удаляет композицию из плейлиста.
 
@@ -127,7 +127,7 @@ class PlayList(LinkedList):
             if self.current_node == node:
                 self.current_node = node
 
-    def find_node(self, data):
+    def find_node(self, data: Composition) -> LinkedListItem | None:
         """
         Ищет узел по данным.
 
@@ -145,11 +145,10 @@ class PlayList(LinkedList):
                 return current
             current = current.next_item
             if current == self.first_item:
-                print(3)
                 break
         return None
 
-    def get_all_songs(self):
+    def get_all_songs(self) -> list[Composition]:
         """
         Возвращает все композиции в плейлисте.
 
